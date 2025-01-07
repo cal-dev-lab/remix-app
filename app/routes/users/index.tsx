@@ -2,7 +2,7 @@ import { useLoaderData, Link } from "@remix-run/react";
 import API from "../../utils/API/API";
 
 export async function loader() {
-  const api = new API('http://localhost:10000');
+  const api = new API(process.env.DATABASE_URL);
 
   try {
     const { data } = await api.get('/users');

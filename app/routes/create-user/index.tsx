@@ -15,7 +15,7 @@ export const action = async ({ request }: ActionArgs) => {
     email: formData.get('email')
   };
 
-  const api = new API('http://localhost:10000'); // Your API base URL
+  const api = new API(process.env.DATABASE_URL); // Your API base URL
 
   try {
     const { data } = await api.post('/users', newUser, {
